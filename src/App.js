@@ -28,7 +28,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Personal Finance Game</h1>
+      <h1>ANNUAL BUDGET GAME</h1>
+
+      <p>
+        A. Insert a monthly salary amount. It will be multiplied by 12 to get the total annual income. <br></br>
+        B. Insert monthly petty expenses amount. <br></br><br></br>
+
+        To practice annual budgeting, simulate each month by repeating the following steps: <br></br>
+        1. Press 'Receive Salary' to salary of that month. <br></br>
+        2. Press 'Allocate Petty Expenses' to deduct it from balance. <br></br>
+        3. Press 'Set Expense' button to reveal what you are supposed to assign an amount to for that month.  <br></br>
+        4. Then assign an amount. Make sure the total amount do not exceed the current balance / annual income. <br></br>
+        Repeat until you can easily budget in a way close to your reality.
+        {/* Finnish one year before going to another year. At the end create an annual budget in the provided template */}
+        <br></br><br></br>
+        Ingiza kiasi cha kipato kwa mwezi (A), itzidishwa mara 12 kupata kipato kwa mwaka. Ingiza kiasi cha gharama ndogondogo kwa mwezi (B). Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
+        {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
+      </p>
+      <br></br><br></br>
+
       <p>Accumulated Income: ${accIncome}</p>
       <p>Total Petty Expenses: ${totalPettyExpenses}</p>
       <p>Total Monthly Expenses: ${totalMonthlyExpenses}</p>
@@ -36,7 +54,7 @@ const App = () => {
 
       <p><strong>Current Balance: ${balance}</strong></p>
 
-      <h5>Enter Salary</h5>
+      <h5>A. Enter Salary</h5>
       <input
         type="number"
         value={salary}
@@ -48,7 +66,7 @@ const App = () => {
       <br /> <br />
       <button onClick={handleSalary}>1. Receive Salary</button>
 
-      <h2>Petty Expenses</h2>
+      <h2>B. Petty Expenses</h2>
       <input
         type="number"
         value={pettyExpenses}
