@@ -29,23 +29,26 @@ const App = () => {
   return (
     <div className="App">
       <h1>ANNUAL BUDGET GAME</h1>
+      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses.</p>
 
       <p>
-        A. Insert a monthly salary amount. It will be multiplied by 12 to get the total annual income. <br></br>
-        B. Insert monthly petty expenses amount. <br></br><br></br>
+        A. Insert a monthly salary amount. It will be multiplied by 12 to get the total annual income. <br />
+        B. Insert monthly petty expenses amount. <br /><br />
 
-        To practice annual budgeting, simulate each month by repeating the following steps: <br></br>
-        1. Press 'Receive Salary' to salary of that month. <br></br>
-        2. Press 'Allocate Petty Expenses' to deduct it from balance. <br></br>
-        3. Press 'Set Expense' button to reveal what you are supposed to assign an amount to for that month.  <br></br>
-        4. Then assign an amount. Make sure the total amount do not exceed the current balance / annual income. <br></br>
+        To practice annual budgeting, simulate each month by repeating the following steps: <br />
+        1. Press 'Receive Salary' to salary of that month. <br />
+        2. Press 'Allocate Petty Expenses' to deduct it from balance. <br />
+        3. Press 'Set Expense' button to reveal what you are supposed to assign an amount to for that month.  <br />
+        4. Then assign an amount. Make sure the total amount do not exceed the current balance / annual income. <br />
         Repeat until you can easily budget in a way close to your reality.
         {/* Finnish one year before going to another year. At the end create an annual budget in the provided template */}
-        <br></br><br></br>
-        Ingiza kiasi cha kipato kwa mwezi (A), itzidishwa mara 12 kupata kipato kwa mwaka. Ingiza kiasi cha gharama ndogondogo kwa mwezi (B). Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
+        <br /><br />
+        Ingiza kiasi cha kipato kwa mwezi (A), itzidishwa mara 12 kupata kipato kwa mwaka. Ingiza kiasi cha gharama ndogondogo kwa mwezi (B).
+        <br />
+        Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
         {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
       </p>
-      <br></br><br></br>
+      <br /><br />
 
       <p>Accumulated Income: ${accIncome}</p>
       <p>Total Petty Expenses: ${totalPettyExpenses}</p>
@@ -54,7 +57,7 @@ const App = () => {
 
       <p><strong>Current Balance: ${balance}</strong></p>
 
-      <h5>A. Enter Salary</h5>
+      <h3>A. Salary</h3>
       <input
         type="number"
         value={salary}
@@ -63,10 +66,9 @@ const App = () => {
         placeholder="Enter Salary Amount"
       />
 
-      <br /> <br />
       <button onClick={handleSalary}>1. Receive Salary</button>
 
-      <h2>B. Petty Expenses</h2>
+      <h3>B. Petty Expenses</h3>
       <input
         type="number"
         value={pettyExpenses}
@@ -75,7 +77,7 @@ const App = () => {
       />
       <button onClick={handlePettyExpenses}>2. Allocate Petty Expenses</button>
 
-      <h2>Expense Items</h2>
+      <h3>Expense Items</h3>
       {/* Passing expenses & others from App into MyTable as a prop */}
       <MyTable
         expensesInput={expensesInput}
