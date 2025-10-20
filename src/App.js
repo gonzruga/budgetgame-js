@@ -50,7 +50,7 @@ const App = () => {
         Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
         {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
       </p>
-      {/* <br /><br /> */}
+      <br /><br />
 
       <p>Accumulated Income: ${accIncome}</p>
       <p>Total Petty Expenses: ${totalPettyExpenses}</p>
@@ -94,7 +94,8 @@ const App = () => {
 
 const ExpBtn = () => {
   const [label, setLabel] = useState('Set Expense');
-  const expenses = ['Hisa', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
+  const expenses = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
+  // const expenses = ['Hisa', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
 
   const handleClick = () => {
     const randomExpense = expenses[Math.floor(Math.random() * expenses.length)];
