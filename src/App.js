@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const categories = ['Akiba', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
+const categories = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
+// const categories = ['Akiba', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
 
 const App = () => {
   const [pettyExpenses, setPettyExpenses] = useState(0);
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>ANNUAL BUDGET GAME</h1>
-      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses.</p>
+      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses (rent, utilities, groceries, transport, etc).</p>
 
       <p>
         A. Insert a monthly salary amount. It will be multiplied by 12 to get the total annual income. <br />
@@ -43,12 +44,13 @@ const App = () => {
         Repeat until you can easily budget in a way close to your reality.
         {/* Finnish one year before going to another year. At the end create an annual budget in the provided template */}
         <br /><br />
+        [In Swahili language] <br></br>
         Ingiza kiasi cha kipato kwa mwezi (A), itzidishwa mara 12 kupata kipato kwa mwaka. Ingiza kiasi cha gharama ndogondogo kwa mwezi (B).
         <br />
         Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
         {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
       </p>
-      <br /><br />
+      {/* <br /><br /> */}
 
       <p>Accumulated Income: ${accIncome}</p>
       <p>Total Petty Expenses: ${totalPettyExpenses}</p>
