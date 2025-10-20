@@ -94,7 +94,7 @@ const App = () => {
 
 const ExpBtn = () => {
   const [label, setLabel] = useState('Set Expense');
-  const expenses = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
+  const expenses = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous'];
   // const expenses = ['Hisa', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
 
   const handleClick = () => {
