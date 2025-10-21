@@ -30,7 +30,9 @@ const App = () => {
   return (
     <div className="App">
       <h1>ANNUAL BUDGET GAME</h1>
-      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses (rent, utilities, groceries, transport, etc).</p>
+      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses (rent, utilities, groceries, transport, etc). <br />
+        Feedback is highly appreciated. Contacts are at the bottom of the page.
+      </p>
 
       <p>
         A. Insert a monthly salary amount. It will be multiplied by 12 to get the total annual income. <br />
@@ -88,7 +90,13 @@ const App = () => {
       // accExpenses={accExpenses}
       />
 
-    </div>
+      <p>
+        <strong>CONTACTS:</strong> <br />
+        <a href='https://www.linkedin.com/in/gonzaga-rugambwa/' target='_blank'>LinkedIn - Gonzaga</a><br />
+        +37254660901
+      </p>
+
+    </div >
   );
 };
 
@@ -151,6 +159,8 @@ const MyTable = ({ expensesInput, setExpensesInput }) => {
     </table>
   );
 };
+
+
 
 export default App;
 
