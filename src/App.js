@@ -6,7 +6,6 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 const categories = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
 // const categories = ['Akiba', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
 
-<<<<<<< HEAD
 const formatNumber = (num) => {
   return Number(num || 0).toLocaleString();
 };
@@ -107,28 +106,6 @@ const labels = {
   balance: "BALANCE",
   monthlyDisposable: "DISPOSABLE INCOME"
 };
-=======
-const App = () => {
-  const [pettyExpenses, setPettyExpenses] = useState(0);
-  const [salary, setSalary] = useState(0);
-  const [accIncome, setAccIncome] = useState(0);
-
-  const [totalPettyExpenses, setTotalPettyExpenses] = useState(0);
-  const [expensesInput, setExpensesInput] = useState([]);
-
-  const handleSalary = () => {
-    setAccIncome(accIncome + salary);
-  };
-
-  const handlePettyExpenses = () => {
-    setTotalPettyExpenses(prev => prev + pettyExpenses);
-  };
-
-  const totalMonthlyExpenses = expensesInput.reduce((sum, val) => sum + (val || 0), 0);
-  const accExpenses = totalPettyExpenses + totalMonthlyExpenses;
-
-  const balance = accIncome - accExpenses;
->>>>>>> 5503306391408546cf5b068d126ba0f535f12259
 
   return (
     <div className="App">
@@ -149,7 +126,6 @@ const App = () => {
         Repeat until you can easily budget in a way close to your reality.
         {/* Finnish one year before going to another year. At the end create an annual budget in the provided template */}
         <br /><br />
-<<<<<<< HEAD
         In Swahili Language: <br></br>
         (A) Ingiza kiasi cha kipato kwa mwezi, itzidishwa mara 12 kupata kipato kwa mwaka. <br></br> 
         (B) Ingiza kiasi cha gharama ndogondogo kwa mwezi.
@@ -281,135 +257,21 @@ const App = () => {
             WhatsApp(Tz): +255788893444<br />
             Estonia: +37254660901
           </p>
-=======
-        [In Swahili language] <br></br>
-        Ingiza kiasi cha kipato kwa mwezi (A), itzidishwa mara 12 kupata kipato kwa mwaka. Ingiza kiasi cha gharama ndogondogo kwa mwezi (B).
-        <br />
-        Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
-        {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
-      </p>
-      <br /><br />
-
-      <p>Accumulated Income: ${accIncome}</p>
-      <p>Total Petty Expenses: ${totalPettyExpenses}</p>
-      <p>Total Monthly Expenses: ${totalMonthlyExpenses}</p>
-      <p>Accumulated Expenses: ${accExpenses}</p>
-
-      <p><strong>Current Balance: ${balance}</strong></p>
-
-      <h3>A. Salary</h3>
-      <input
-        type="number"
-        value={salary}
-        // onChange={(e) => setSalary(parseInt(e.target.value, 10) || 0)}
-        onChange={(e) => setSalary(parseInt(e.target.value, 10))}
-        placeholder="Enter Salary Amount"
-      />
-
-      <button onClick={handleSalary}>1. Receive Salary</button>
-
-      <h3>B. Petty Expenses</h3>
-      <input
-        type="number"
-        value={pettyExpenses}
-        onChange={(e) => setPettyExpenses(parseInt(e.target.value, 10))}
-        placeholder="Allocate Petty Expenses"
-      />
-      <button onClick={handlePettyExpenses}>2. Allocate Petty Expenses</button>
-
-      <h3>Expense Items</h3>
-      {/* Passing expenses & others from App into MyTable as a prop */}
-      <MyTable
-        expensesInput={expensesInput}
-        setExpensesInput={setExpensesInput}
-      // updateAccExpenses={updateAccExpenses}
-      // accExpenses={accExpenses}
-      />
-
-      <p>
-        <strong>CONTACTS:</strong> <br />
-        <a href='https://www.linkedin.com/in/gonzaga-rugambwa/' target='_blank'>LinkedIn - Gonzaga</a><br />
-        +37254660901
-      </p>
->>>>>>> 5503306391408546cf5b068d126ba0f535f12259
 
     </div >
   );
 };
 
-<<<<<<< HEAD
 
 const ExpBtn = () => {
   const [label, setLabel] = useState('Set Expense');
   
   const handleClick = () => {
     const randomExpense = categories[Math.floor(Math.random() * categories.length)];
-=======
-const ExpBtn = () => {
-  const [label, setLabel] = useState('Set Expense');
-  const expenses = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous'];
-  // const expenses = ['Hisa', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
-
-  const handleClick = () => {
-    const randomExpense = expenses[Math.floor(Math.random() * expenses.length)];
->>>>>>> 5503306391408546cf5b068d126ba0f535f12259
     setLabel(randomExpense);
   };
   return <button onClick={handleClick}>{label}</button>;
 }
 
-<<<<<<< HEAD
-=======
-const MyTable = ({ expensesInput, setExpensesInput }) => {
-
-  const handleChange = (index, value) => {
-    const updated = [...expensesInput];
-    // const previous = updated[index] || 0;
-    updated[index] = value;
-
-    // const diff = value - previous;
-    setExpensesInput(updated);
-    // updateAccExpenses(diff);
-  };
-
-  // Total sum from inputs computed locally
-  const total = expensesInput.reduce((sum, val) => sum + (val || 0), 0);
-
-  return (
-    <table border="1" cellPadding="10" style={{ borderCollapse: 'collapse' }}>
-      <thead>
-        <tr>
-          <th>Month</th>
-          <th>3. Expense</th>
-          <th>4. Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        {months.map((month, index) => (
-          <tr key={index}>
-            <td><p>{month}</p></td>
-            <td><ExpBtn /></td>
-            <td>
-              <input
-                type='number'
-                defaultValue={0}
-                onBlur={(e) => handleChange(index, parseInt(e.target.value) || 0)}
-              />
-            </td>
-          </tr>
-        ))}
-        <tr>
-          <td></td>
-          <td><strong>Total</strong></td>
-          <td><strong>${total}</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
-
-
->>>>>>> 5503306391408546cf5b068d126ba0f535f12259
 export default App;
 
