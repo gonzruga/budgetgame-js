@@ -9,11 +9,7 @@
     "axios": "^1.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-<<<<<<< HEAD
     "react-scripts": "^5.0.1",
-=======
-    "react-scripts": "5.0.1",
->>>>>>> 5503306391408546cf5b068d126ba0f535f12259
     "web-vitals": "^2.1.4"
   },
   "scripts": {
