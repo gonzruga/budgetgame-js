@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const categories = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
@@ -139,7 +139,7 @@ const labels = {
       Current: Year {data[currentYearIndex].year} - {months[currentMonth]}
       </h2>
 
-      {/* <button onClick={nextMonth}>Next Month ▶</button> */}
+      <button onClick={nextMonth}>Next Month ▶</button>
 
       <table border="1" cellPadding="5" style={{ borderCollapse: 'collapse' }}>
         <thead><tr>
@@ -253,7 +253,9 @@ const labels = {
 
           <p>
             <strong>CONTACTS:</strong> <br />
-            <a href='https://www.linkedin.com/in/gonzaga-rugambwa/' target='_blank'>LinkedIn: Gonzaga</a><br />
+            <a href="https://www.linkedin.com/in/gonzaga-rugambwa/" target="_blank" rel="noopener noreferrer">
+              LinkedIn: Gonzaga
+            </a><br />
             WhatsApp(Tz): +255788893444<br />
             Estonia: +37254660901
           </p>
