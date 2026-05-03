@@ -126,7 +126,6 @@ const App = () => {
   const annualPettyExpenses = budgetPetty * 12;
   const annualExpenses = budgetExpenses.reduce((sum, value) => sum + value, 0);
   const annualIncome = budgetSalary * 12;
-  const accumulatedExpenses = annualPettyExpenses + annualExpenses;
   const balanceDisposable = annualDisposableIncome - annualExpenses;
 
   React.useEffect(() => {
