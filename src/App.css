@@ -38,3 +38,9 @@
     transform: rotate(360deg);
   }
 }
+
+.current-month {
+  color: red;
+  font-weight: bold;
+  background-color: #ffe5e5;
+}

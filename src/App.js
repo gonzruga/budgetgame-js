@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import axios from 'axios';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const categories = ['Investments', 'Savings', 'Mortgage', 'Family', 'Entertainment', 'Social Commitment', 'Health/Fitness', 'Miscellaneous']
+const categories = ['Investments', 'Savings', 'House/Mortgage', 'Family', 'Health', 'Entertainment', 'Social Commitments', 'Shopping', 'Miscellaneous']
 // const categories = ['Akiba', 'Ujenzi', 'Watoto', 'Burudani', 'Misiba', 'Harusi', 'Matibabu', 'Mengineyo'];
 
 const formatNumber = (num) => {
@@ -140,8 +140,8 @@ const App = () => {
   return (
     <div className="App">
       <h1>ANNUAL BUDGET GAME</h1>
-      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating expenses (rent, utilities, groceries, transport, etc). <br />
-        Feedback is highly appreciated. Contacts are at the bottom of the page.
+      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating petty expenses (rent, utilities, groceries, transport, subscriptions (Netflix, gym) etc). <br />
+        Feedback is highly appreciated. Contacts are at the bottom of the page. 
       </p>
 
       <p>
@@ -152,17 +152,18 @@ const App = () => {
         1. Press 'Receive Salary' to salary of that month. <br />
         2. Press 'Allocate Petty Expenses' to deduct it from balance. <br />
         3. Press 'Set Expense' button to reveal what you are supposed to assign an amount to for that month.  <br />
-        4. Then assign an amount. Make sure the total amount do not exceed the current balance / annual income. <br />
-        Repeat until you can easily budget in a way close to your reality.
-        {/* Finnish one year before going to another year. At the end create an annual budget in the provided template */}
+        4. Then assign an amount. Make sure it does not exceed the current balance. <br />
+        Repeat until you can easily budget in a way close to your reality. The objective is allocate all income i.e. by end of December, the 'Balance Unallocated' should be zero. <br />
+        After year 3, create an annual budget in the provided template by filling in A. Monthly Salary, B. Monthly Petty Expenses and amounts per categories. 
+        If do a mistake, to start again just refresh the page.
         <br /><br />
         In Swahili Language: <br></br>
         (A) Ingiza kiasi cha kipato kwa mwezi, itzidishwa mara 12 kupata kipato kwa mwaka. <br></br>
-        (B) Ingiza kiasi cha gharama ndogondogo kwa mwezi.
+        (B) Ingiza kiasi cha matumizi madogo kwa mwezi (kodi, umeme, maji, chakula, usafiri, n.k.).
         <br />
         Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. <br></br>
-        Hakikisha jumla ya matumizi hayazidi salio la kipato / jumla kipato cha mwaka.
-        {/* Maliza mwaka mmoja kablya ya kuhamia mwaka mwingine. Mwisho tengeneza bajeti yako ya mwaka. */}
+        Hakikisha jumla ya matumizi hayazidi salio.<br />
+        Ukimaliza miaka 3, tengeneza bajeti yako ya mwaka kwa kujaza A. Mshahara, B. Matumizi Madogo na kiasi kwa kila kundi la gharama. Kuanza upya, 'refresh' ukurasa wote.
       </p>
 
       <h2>
@@ -200,11 +201,7 @@ const App = () => {
         {data.map((year, yIndex) => (
           <div key={yIndex}>
             <h2>Year {year.year}</h2>
-
-            <button onClick={() => receiveSalary(yIndex)}>
-              1.Receive Salary
-            </button>
-
+            A. Salary &nbsp;
             <input
               type="number"
               value={year.salary}
@@ -212,16 +209,24 @@ const App = () => {
               onChange={(e) => updateSalary(yIndex, parseInt(e.target.value) || 0)}
             />
             <br />
-            <button onClick={() => payPetty(yIndex)}>
-              2.Pay Petty
-            </button>
 
+            B. Petty Expenses &nbsp;
             <input
               type="number"
               value={year.petty}
               placeholder="Monthly Petty"
               onChange={(e) => updatePetty(yIndex, parseInt(e.target.value) || 0)}
             />
+            <br /><br />
+
+            <button onClick={() => receiveSalary(yIndex)}>
+              1. Receive Salary
+            </button>
+            &nbsp;&nbsp;
+            <button onClick={() => payPetty(yIndex)}>
+              2. Petty Expenses
+            </button>
+
             <br />
 
             <p
@@ -233,8 +238,7 @@ const App = () => {
             >
               Monthly Disposable Income: {formatNumber(year.salary - year.petty)}
             </p>
-            <br /> <br />
-
+            <br />
 
             <table border="1">
               <thead>
@@ -248,7 +252,15 @@ const App = () => {
               <tbody>
                 {months.map((month, mIndex) => (
                   <tr key={mIndex}>
-                    <td>{month}</td>
+                    <td
+                      className={
+                        yIndex === currentYearIndex && mIndex === currentMonth
+                          ? "current-month"
+                          : ""
+                      }
+                    >
+                      {month}
+                    </td>                    
                     <td><ExpBtn /></td>
                     <td>
                       <input
@@ -273,7 +285,7 @@ const App = () => {
             </table>
 
             <h4>
-              Balance: {formatNumber(getYearSummary(year).balance)}
+              Balance Unallocated: {formatNumber(getYearSummary(year).balance)}
             </h4>
 
           </div >
