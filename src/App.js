@@ -439,6 +439,15 @@ const App = () => {
       </table>
 
       <p>
+        Note: If you allocate more than the disposable income, the 'Balance Unallocated' will be negative and shown in red color. Adjust your expenses to fit within the budget.
+      </p>
+
+      <p>
+        You can download a budget excel template on <a href='https://docs.google.com/spreadsheets/d/1ACMEnBeXbgb4glXfrtc_exoD0-pAqKfk/edit?usp=sharing&ouid=100243878720102149034&rtpof=true&sd=true' target="_blank" rel="noopener noreferrer">
+          this Google Drive link
+        </a>. Click on 'File' then 'Make a copy' or 'Download'. Review the examples proivded, then fill in your own budget on the 5th sheet titled 'Bajeti'
+      </p>
+      <p>
         <strong>CONTACTS:</strong> <br />
         <a href="https://www.linkedin.com/in/gonzaga-rugambwa/" target="_blank" rel="noopener noreferrer">
           LinkedIn: Gonzaga
