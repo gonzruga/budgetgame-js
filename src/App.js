@@ -140,7 +140,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>ANNUAL BUDGET GAME</h1>
-      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating petty expenses (rent, utilities, groceries, transport, subscriptions (Netflix, gym) etc). <br />
+      <p>Welcome to play this game to learn how to budget annualy after deducting monthly repeating petty expenses (rent, utilities, groceries, transport, subscriptions (Netflix, gym), monthly savings, etc). <br />
         Feedback is highly appreciated. Contacts are at the bottom of the page. 
       </p>
 
@@ -150,7 +150,7 @@ const App = () => {
 
         To practice annual budgeting, simulate each month by repeating the following steps: <br />
         1. Press 'Receive Salary' to salary of that month. <br />
-        2. Press 'Allocate Petty Expenses' to deduct it from balance. <br />
+        2. Press 'Allocate Petty / Monthly Expenses' to deduct it from balance. <br />
         3. Press 'Set Expense' button to reveal what you are supposed to assign an amount to for that month.  <br />
         4. Then assign an amount. Make sure it does not exceed the current balance. <br />
         Repeat until you can easily budget in a way close to your reality. The objective is allocate all income i.e. by end of December, the 'Balance Unallocated' should be zero. <br />
@@ -159,7 +159,7 @@ const App = () => {
         <br /><br />
         In Swahili Language: <br></br>
         (A) Ingiza kiasi cha kipato kwa mwezi, itzidishwa mara 12 kupata kipato kwa mwaka. <br></br>
-        (B) Ingiza kiasi cha matumizi madogo kwa mwezi (kodi, umeme, maji, chakula, usafiri, n.k.).
+        (B) Ingiza kiasi cha matumizi madogo kwa mwezi (kodi, umeme, maji, chakula, usafiri, akiba ya mwezi, n.k.).
         <br />
         Kwa kila mwezi bonyeza (1) kupata mshahara, (2) kutoa matumizi madogo, (3) kujua aina ya gharma mwezi husika unatakiwa kugharimia,  halafu (4) ingiza kiasi. <br></br>
         Hakikisha jumla ya matumizi hayazidi salio.<br />
@@ -201,20 +201,20 @@ const App = () => {
         {data.map((year, yIndex) => (
           <div key={yIndex}>
             <h2>Year {year.year}</h2>
-            A. Salary &nbsp;
+            A. Monthly Salary &nbsp;
             <input
               type="number"
-              value={year.salary}
-              placeholder="Monthly Salary"
+              value={year.salary === 0 ? "" : year.salary}
+              placeholder=""
               onChange={(e) => updateSalary(yIndex, parseInt(e.target.value) || 0)}
             />
             <br />
 
-            B. Petty Expenses &nbsp;
+            B. Monthly Expenses &nbsp;
             <input
               type="number"
-              value={year.petty}
-              placeholder="Monthly Petty"
+              value={year.petty === 0 ? "" : year.petty}
+              placeholder=""
               onChange={(e) => updatePetty(yIndex, parseInt(e.target.value) || 0)}
             />
             <br /><br />
@@ -224,7 +224,7 @@ const App = () => {
             </button>
             &nbsp;&nbsp;
             <button onClick={() => payPetty(yIndex)}>
-              2. Petty Expenses
+              2. Monthly Expenses
             </button>
 
             <br />
@@ -265,8 +265,9 @@ const App = () => {
                     <td>
                       <input
                         type="number"
-                        value={year.expenses[mIndex]}
-                        disabled={yIndex !== currentYearIndex || mIndex !== currentMonth}
+                        value={year.expenses[mIndex] === 0 ? "" : year.expenses[mIndex]}
+                        // disabled={yIndex !== currentYearIndex || mIndex !== currentMonth}
+                        // comment out above line to restrict user to only enter expense for current month. This way they can enter for any month.
                         onChange={(e) =>
                           updateExpense(
                             yIndex,
