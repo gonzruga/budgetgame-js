@@ -450,12 +450,7 @@ const App = () => {
       </p>
       <p>
         <strong>CONTACTS:</strong> <br />
-        <a href="https://www.linkedin.com/in/gonzaga-rugambwa/" target="_blank" rel="noopener noreferrer">
-          LinkedIn: Gonzaga
-        </a><br />
-        Estonia: +37254660901<br />
         WhatsApp(Tz): +255788893444
-
       </p>
 
     </div >
